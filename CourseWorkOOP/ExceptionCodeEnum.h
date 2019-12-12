@@ -1,0 +1,10 @@
+#ifndef EXCEPTIONCODEENUM_H
+#define EXCEPTIONCODEENUM_H
+
+enum ExceptionCodeEnum
+{
+    INPUTISNOTCORRECT = 0,
+    FILEHASNOTOPENED = 1
+};
+
+#endif // EXCEPTIONCODEENUM_H
