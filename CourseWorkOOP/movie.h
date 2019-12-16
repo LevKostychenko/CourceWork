@@ -10,7 +10,6 @@ public:
     Movie(QString category, QString name, QString description, QString imagePath, QString addingDate,
           QString creatingDate = "", List<QString> cast = List<QString>());
     Movie();
-    //virtual ~Movie();
     List<QString> Cast;
 };
 

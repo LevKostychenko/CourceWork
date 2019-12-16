@@ -23,6 +23,8 @@ SOURCES += \
     EditEducationalCartoonModalWindow.cpp \
     EditFilmModelWindow.cpp \
     FileException.cpp \
+    FileReader.cpp \
+    FileWriter.cpp \
     FindLogic.cpp \
     InputException.cpp \
     InputLogic.cpp \
@@ -48,6 +50,8 @@ HEADERS += \
     EditFilmModelWindow.h \
     ExceptionCodeEnum.h \
     FileException.h \
+    FileReader.h \
+    FileWriter.h \
     FindLogic.h \
     InputException.h \
     InputLogic.h \
@@ -76,3 +80,9 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+STATECHARTS += \
+    qclassDiargam.scxml
+
+DISTFILES += \
+    classdiagram.qmodel

@@ -4,7 +4,9 @@
 #include "VideoDBContext.h"
 #include <qfile.h>
 #include <qlist.h>
+#include "FileReader.h"
 #include <QTextStream>
+#include "FileWriter.h"
 
 class VideoRepository : public CustomDatabase<VideoDBContext>
 {

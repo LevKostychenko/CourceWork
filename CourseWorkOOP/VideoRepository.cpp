@@ -55,25 +55,7 @@ void VideoRepository::Update(VideoDBContext data, int id)
 int VideoRepository::GetLastId()
 {
     QFile nameTable("NameTable.txt");
-    int _id;
-
-    if(nameTable.open(QIODevice::ReadWrite | QIODevice::Text))
-    {
-        QTextStream stream(&nameTable);
-        while (!stream.atEnd())
-        {
-            QString line = stream.readLine();
-            _id = line.split(' ')[0].toInt();
-        }
-
-        nameTable.close();
-    }
-    else
-    {
-        throw FileException("Cannot open file", nameTable.fileName());
-    }
-
-    return _id;
+    return this->GetLastId(&nameTable);
 }
 
 void VideoRepository::Remove(int id)
@@ -124,75 +106,58 @@ QMap<int, VideoDBContext> VideoRepository::GetAll()
 void VideoRepository::WriteToFile(QFile* file, QString data)
 {
     QString id = QString::number(GetLastId(file) + 1);
-
-    if ( (*file).open(QIODevice::WriteOnly | QIODevice::Append) )
-    {
-        QTextStream stream( &(*file) );
-        stream << id << " " << data << endl;
-    }
-    else
-    {
-        throw FileException("Cannot open file", file->fileName());
-    }
-
-    (*file).close();
-}
-
-void VideoRepository::WriteToFile(QFile *file, List<QString> data)
-{
-    QString id = QString::number(GetLastId(file) + 1);
+    QString buff;
+    FileWriter fwriter;
 
     if (id == "0")
     {
         return;
     }
-    auto it = data.begin();
+    buff.append(id + " " + data + "\n");
 
-    if ( (*file).open(QIODevice::WriteOnly | QIODevice::Append) )
+    fwriter.AppendToFile(file, buff);
+}
+
+void VideoRepository::WriteToFile(QFile *file, List<QString> data)
+{
+    QString id = QString::number(GetLastId(file) + 1);
+    QString buff;
+    FileWriter fwriter;
+
+    if (id == "0")
     {
-        QTextStream stream( &(*file) );
-        stream << id << " ";
-        for (it; it != data.end(); it++)
-        {
-            stream << *it << ',';
-        }
-
-        stream << endl;
+        return;
     }
-    else
+    Iterator<QString> it = data.begin();
+    buff.append(id + " ");
+    for (it; it != data.end(); it++)
     {
-        throw FileException("Cannot open file", file->fileName());
+        buff.append(*it +',');
     }
 
-    (*file).close();
+    buff.append("\n");
+    fwriter.AppendToFile(file, buff);
 }
 
 int VideoRepository::GetLastId(QFile* file)
 {
     QString id = "0";
-
-    if ((*file).open(QIODevice::ReadWrite))
+    FileReader freader;
+    QString buff = freader.ReadAll(file);
+    QStringList strlist = buff.split('\n');
+    QStringList fields;
+    for (QStringList::iterator iter = strlist.begin(); iter != strlist.end(); iter++)
     {
-        QTextStream stream( &(*file) );
-        QStringList fields;
-        while (!stream.atEnd())
+        QString line = *iter;
+        if (!line.isEmpty() && line != "\n")
         {
-            QString line = stream.readLine();
             fields.append(line);
         }
-
-        if (!fields.empty())
-        {
-            id = fields.last().split(' ')[0];
-        }
     }
-    else
+    if (!fields.empty())
     {
-        throw FileException("Cannot open file", file->fileName());
+        id = fields.last().split(' ')[0];
     }
-
-
-    (*file).close();
 
     return id.toInt();
 }
@@ -200,25 +165,19 @@ int VideoRepository::GetLastId(QFile* file)
 int VideoRepository::GetCountOfEntities(QFile *file)
 {
     int count = 0;
-
-    if((*file).open(QIODevice::ReadOnly))
+    FileReader freader;
+    QString buff = freader.ReadAll(file);
+    QStringList strlist = buff.split('\n');
+    for (QStringList::iterator iter = strlist.begin(); iter != strlist.end(); iter++)
     {
-        QTextStream stream( &(*file) );
-        while (!stream.atEnd())
+        QString line = *iter;
+        if (!line.isEmpty() && line != "\n")
         {
-            QString line = stream.readLine();
             count++;
         }
-
-        file->close();
-        return count;
-    }
-    else
-    {
-        throw FileException("Cannot open file", file->fileName());
     }
 
-    return 0;
+    return count;
 }
 
 QMap<int, VideoDBContext> VideoRepository::ReadFromFiles(int count)
@@ -286,29 +245,10 @@ QMap<int, QString> VideoRepository::ReadFromFile(QFile* file, int count)
     int id = 0;
     QString data = "";
     QMap<int, QString> map;
-
-    if((*file).open(QIODevice::ReadOnly))
-    {
-        QTextStream stream( &(*file) );
-
-        for(int i = 0; i < count; i++)
-        {
-            QString line = stream.readLine();
-        }
-
-        QString line = stream.readLine();
-        data = line.section(' ', 1);
-        id = line.split(' ')[0].toInt();
-
-        file->close();
-        map.insert(id, data);
-        return map;
-    }
-    else
-    {
-        throw FileException("Cannot open file", file->fileName());
-    }
-
+    FileReader freader;
+    QString line = freader.ReadToCount(file, count);
+    data = line.section(' ', 1);
+    id = line.split(' ')[0].toInt();
     map.insert(id, data);
     return map;
 }
@@ -316,44 +256,41 @@ QMap<int, QString> VideoRepository::ReadFromFile(QFile* file, int count)
 void VideoRepository::RemoveFromFile(QFile *file, int id)
 {
     QString buffer;
-
-    if((*file).open(QIODevice::ReadWrite | QIODevice::Text))
+    FileReader freader;
+    FileWriter fwriter;
+    QString currentData = freader.ReadAll(file);
+    QStringList strlist = currentData.split('\n');
+    for (QStringList::iterator iter = strlist.begin(); iter != strlist.end(); iter++)
     {
-        QTextStream stream( &(*file) );
-
-        while (!stream.atEnd())
+        QString line = *iter;
+        if (!line.isEmpty() && line != "\n")
         {
-            QString line = stream.readLine();
             int _id = line.split(' ')[0].toInt();
+
             if (_id != id)
             {
                 buffer.append(line + "\n");
             }
         }
-
-        file->resize(0);
-        stream << buffer;
-        file->close();
-    }
-    else
-    {
-        throw FileException("Cannot open file", file->fileName());
     }
 
+    fwriter.WriteToFile(file, buffer);
 }
 
 void VideoRepository::UpdateFile(int id, QString newData, QFile *file)
 {
     QString buffer;
-
-    if((*file).open(QIODevice::ReadWrite | QIODevice::Text))
+    FileReader freader;
+    FileWriter fwriter;
+    QString currentData = freader.ReadAll(file);
+    QStringList strlist = currentData.split('\n');
+    for (QStringList::iterator iter = strlist.begin(); iter != strlist.end(); iter++)
     {
-        QTextStream stream( &(*file) );
-
-        while (!stream.atEnd())
+        QString line = *iter;
+        if (!line.isEmpty() && line != "\n")
         {
-            QString line = stream.readLine();
             int _id = line.split(' ')[0].toInt();
+
             if (_id != id)
             {
                 buffer.append(line + "\n");
@@ -364,30 +301,25 @@ void VideoRepository::UpdateFile(int id, QString newData, QFile *file)
                 buffer.append(newLine + "\n");
             }
         }
-
-        file->resize(0);
-        stream << buffer;
-        file->close();
-    }
-    else
-    {
-        throw FileException("Cannot open file", file->fileName());
     }
 
+    fwriter.WriteToFile(file, buffer);
 }
 
 void VideoRepository::UpdateFile(int id, List<QString> newData, QFile *file)
 {
     QString buffer;
-
-    if((*file).open(QIODevice::ReadWrite | QIODevice::Text))
+    FileReader freader;
+    FileWriter fwriter;
+    QString currentData = freader.ReadAll(file);
+    QStringList strlist = currentData.split('\n');
+    for (QStringList::iterator iter = strlist.begin(); iter != strlist.end(); iter++)
     {
-        QTextStream stream( &(*file) );
-
-        while (!stream.atEnd())
+        QString line = *iter;
+        if (!line.isEmpty() && line != "\n")
         {
-            QString line = stream.readLine();
             int _id = line.split(' ')[0].toInt();
+
             if (_id != id)
             {
                 buffer.append(line + "\n");
@@ -404,15 +336,9 @@ void VideoRepository::UpdateFile(int id, List<QString> newData, QFile *file)
                 buffer.append(newLine + "\n");
             }
         }
+    }
 
-        file->resize(0);
-        stream << buffer;
-        file->close();
-    }
-    else
-    {
-        throw FileException("Cannot open file", file->fileName());
-    }
+    fwriter.WriteToFile(file, buffer);
 }
 
 

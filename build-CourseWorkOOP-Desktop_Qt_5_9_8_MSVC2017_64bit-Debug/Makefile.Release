@@ -52,6 +52,8 @@ SOURCES       = ..\CourseWorkOOP\BaseException.cpp \
 		..\CourseWorkOOP\EditEducationalCartoonModalWindow.cpp \
 		..\CourseWorkOOP\EditFilmModelWindow.cpp \
 		..\CourseWorkOOP\FileException.cpp \
+		..\CourseWorkOOP\FileReader.cpp \
+		..\CourseWorkOOP\FileWriter.cpp \
 		..\CourseWorkOOP\FindLogic.cpp \
 		..\CourseWorkOOP\InputException.cpp \
 		..\CourseWorkOOP\InputLogic.cpp \
@@ -79,6 +81,8 @@ OBJECTS       = release\BaseException.obj \
 		release\EditEducationalCartoonModalWindow.obj \
 		release\EditFilmModelWindow.obj \
 		release\FileException.obj \
+		release\FileReader.obj \
+		release\FileWriter.obj \
 		release\FindLogic.obj \
 		release\InputException.obj \
 		release\InputLogic.obj \
@@ -101,7 +105,7 @@ OBJECTS       = release\BaseException.obj \
 		release\moc_filmblock.obj \
 		release\moc_mainwindow.obj
 
-DIST          =  ..\CourseWorkOOP\ActionEnum.h \
+DIST          = classdiagram.qmodel ..\CourseWorkOOP\ActionEnum.h \
 		..\CourseWorkOOP\BaseException.h \
 		..\CourseWorkOOP\CustomDatabase.h \
 		..\CourseWorkOOP\DescriptionWindow.h \
@@ -110,6 +114,8 @@ DIST          =  ..\CourseWorkOOP\ActionEnum.h \
 		..\CourseWorkOOP\EditFilmModelWindow.h \
 		..\CourseWorkOOP\ExceptionCodeEnum.h \
 		..\CourseWorkOOP\FileException.h \
+		..\CourseWorkOOP\FileReader.h \
+		..\CourseWorkOOP\FileWriter.h \
 		..\CourseWorkOOP\FindLogic.h \
 		..\CourseWorkOOP\InputException.h \
 		..\CourseWorkOOP\InputLogic.h \
@@ -130,6 +136,8 @@ DIST          =  ..\CourseWorkOOP\ActionEnum.h \
 		..\CourseWorkOOP\EditEducationalCartoonModalWindow.cpp \
 		..\CourseWorkOOP\EditFilmModelWindow.cpp \
 		..\CourseWorkOOP\FileException.cpp \
+		..\CourseWorkOOP\FileReader.cpp \
+		..\CourseWorkOOP\FileWriter.cpp \
 		..\CourseWorkOOP\FindLogic.cpp \
 		..\CourseWorkOOP\InputException.cpp \
 		..\CourseWorkOOP\InputLogic.cpp \
@@ -220,7 +228,7 @@ all: Makefile.Release  $(DESTDIR_TARGET)
 
 $(DESTDIR_TARGET): ui_DescriptionWindow.h ui_EditAnimeModalWindow.h ui_EditEducationalCartoonModalWindow.h ui_EditFilmModelWindow.h ui_addnewobjectdialog.h ui_filmblock.h ui_mainwindow.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) /MANIFEST:embed /OUT:$(DESTDIR_TARGET) @<<
-release\BaseException.obj release\CustomDatabase.obj release\DescriptionWindow.obj release\EditAnimeModalWindow.obj release\EditEducationalCartoonModalWindow.obj release\EditFilmModelWindow.obj release\FileException.obj release\FindLogic.obj release\InputException.obj release\InputLogic.obj release\VideoDBContext.obj release\VideoRepository.obj release\addnewobjectdialog.obj release\anime.obj release\cartoon.obj release\educational.obj release\filmblock.obj release\main.obj release\mainwindow.obj release\movie.obj release\video.obj release\moc_DescriptionWindow.obj release\moc_EditAnimeModalWindow.obj release\moc_EditEducationalCartoonModalWindow.obj release\moc_EditFilmModelWindow.obj release\moc_addnewobjectdialog.obj release\moc_filmblock.obj release\moc_mainwindow.obj
+release\BaseException.obj release\CustomDatabase.obj release\DescriptionWindow.obj release\EditAnimeModalWindow.obj release\EditEducationalCartoonModalWindow.obj release\EditFilmModelWindow.obj release\FileException.obj release\FileReader.obj release\FileWriter.obj release\FindLogic.obj release\InputException.obj release\InputLogic.obj release\VideoDBContext.obj release\VideoRepository.obj release\addnewobjectdialog.obj release\anime.obj release\cartoon.obj release\educational.obj release\filmblock.obj release\main.obj release\mainwindow.obj release\movie.obj release\video.obj release\moc_DescriptionWindow.obj release\moc_EditAnimeModalWindow.obj release\moc_EditEducationalCartoonModalWindow.obj release\moc_EditFilmModelWindow.obj release\moc_addnewobjectdialog.obj release\moc_filmblock.obj release\moc_mainwindow.obj
 $(LIBS)
 <<
 
@@ -230,10 +238,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) CourseWorkOOP.zip $(SOURCES) $(DIST) ..\CourseWorkOOP\CourseWorkOOP.pro ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\spec_pre.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\common\angle.conf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\common\msvc-desktop.conf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\qconfig.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3drender.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axbase.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axserver.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_charts.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_charts_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_core.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_datavisualization.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_datavisualization_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_help.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_location.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_location_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_network.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_networkauth.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_networkauth_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_nfc.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_positioning.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_purchasing.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_purchasing_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_repparser.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_repparser_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_script.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_script_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_scripttools.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_scxml.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_sensors.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_serialport.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_texttospeech.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webengine.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webengine_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webenginecore.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webenginecore_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_websockets.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webview.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webview_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_winextras.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\qt_functions.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\qt_config.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\win32-msvc\qmake.conf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\exclusive_builds.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\common\msvc-version.conf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\toolchain.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\default_pre.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\win32\default_pre.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\resolve_config.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\default_post.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\build_pass.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\qml_debug.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\precompile_header.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\warn_on.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\qt.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\resources.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\moc.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\win32\opengl.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\uic.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\qmake_use.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\file_copies.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\win32\windows.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\testcase_targets.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\exceptions.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\yacc.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\lex.prf ..\CourseWorkOOP\CourseWorkOOP.pro ..\..\..\Qt\5.9.8\msvc2017_64\lib\qtmain.prl ..\..\..\Qt\5.9.8\msvc2017_64\lib\Qt5Widgets.prl ..\..\..\Qt\5.9.8\msvc2017_64\lib\Qt5Gui.prl ..\..\..\Qt\5.9.8\msvc2017_64\lib\Qt5Sql.prl ..\..\..\Qt\5.9.8\msvc2017_64\lib\Qt5Core.prl    ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\data\dummy.cpp ..\CourseWorkOOP\ActionEnum.h ..\CourseWorkOOP\BaseException.h ..\CourseWorkOOP\CustomDatabase.h ..\CourseWorkOOP\DescriptionWindow.h ..\CourseWorkOOP\EditAnimeModalWindow.h ..\CourseWorkOOP\EditEducationalCartoonModalWindow.h ..\CourseWorkOOP\EditFilmModelWindow.h ..\CourseWorkOOP\ExceptionCodeEnum.h ..\CourseWorkOOP\FileException.h ..\CourseWorkOOP\FindLogic.h ..\CourseWorkOOP\InputException.h ..\CourseWorkOOP\InputLogic.h ..\CourseWorkOOP\List.h ..\CourseWorkOOP\VideoDBContext.h ..\CourseWorkOOP\VideoRepository.h ..\CourseWorkOOP\addnewobjectdialog.h ..\CourseWorkOOP\anime.h ..\CourseWorkOOP\cartoon.h ..\CourseWorkOOP\educational.h ..\CourseWorkOOP\filmblock.h ..\CourseWorkOOP\mainwindow.h ..\CourseWorkOOP\movie.h ..\CourseWorkOOP\video.h ..\CourseWorkOOP\BaseException.cpp ..\CourseWorkOOP\CustomDatabase.cpp ..\CourseWorkOOP\DescriptionWindow.cpp ..\CourseWorkOOP\EditAnimeModalWindow.cpp ..\CourseWorkOOP\EditEducationalCartoonModalWindow.cpp ..\CourseWorkOOP\EditFilmModelWindow.cpp ..\CourseWorkOOP\FileException.cpp ..\CourseWorkOOP\FindLogic.cpp ..\CourseWorkOOP\InputException.cpp ..\CourseWorkOOP\InputLogic.cpp ..\CourseWorkOOP\VideoDBContext.cpp ..\CourseWorkOOP\VideoRepository.cpp ..\CourseWorkOOP\addnewobjectdialog.cpp ..\CourseWorkOOP\anime.cpp ..\CourseWorkOOP\cartoon.cpp ..\CourseWorkOOP\educational.cpp ..\CourseWorkOOP\filmblock.cpp ..\CourseWorkOOP\main.cpp ..\CourseWorkOOP\mainwindow.cpp ..\CourseWorkOOP\movie.cpp ..\CourseWorkOOP\video.cpp ..\CourseWorkOOP\DescriptionWindow.ui ..\CourseWorkOOP\EditAnimeModalWindow.ui ..\CourseWorkOOP\EditEducationalCartoonModalWindow.ui ..\CourseWorkOOP\EditFilmModelWindow.ui ..\CourseWorkOOP\addnewobjectdialog.ui ..\CourseWorkOOP\filmblock.ui ..\CourseWorkOOP\mainwindow.ui    
+	$(ZIP) CourseWorkOOP.zip $(SOURCES) $(DIST) ..\CourseWorkOOP\CourseWorkOOP.pro ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\spec_pre.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\common\angle.conf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\common\msvc-desktop.conf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\qconfig.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3drender.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axbase.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axserver.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_charts.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_charts_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_core.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_datavisualization.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_datavisualization_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_help.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_location.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_location_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_network.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_networkauth.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_networkauth_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_nfc.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_positioning.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_purchasing.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_purchasing_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_repparser.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_repparser_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_script.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_script_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_scripttools.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_scxml.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_sensors.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_serialport.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_texttospeech.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webengine.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webengine_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webenginecore.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webenginecore_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_websockets.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webview.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_webview_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_winextras.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\qt_functions.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\qt_config.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\win32-msvc\qmake.conf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\exclusive_builds.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\common\msvc-version.conf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\toolchain.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\default_pre.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\win32\default_pre.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\resolve_config.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\default_post.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\build_pass.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\qml_debug.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\precompile_header.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\warn_on.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\qt.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\resources.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\moc.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\win32\opengl.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\uic.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\qmake_use.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\file_copies.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\win32\windows.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\testcase_targets.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\exceptions.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\yacc.prf ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\lex.prf ..\CourseWorkOOP\CourseWorkOOP.pro ..\..\..\Qt\5.9.8\msvc2017_64\lib\qtmain.prl ..\..\..\Qt\5.9.8\msvc2017_64\lib\Qt5Widgets.prl ..\..\..\Qt\5.9.8\msvc2017_64\lib\Qt5Gui.prl ..\..\..\Qt\5.9.8\msvc2017_64\lib\Qt5Sql.prl ..\..\..\Qt\5.9.8\msvc2017_64\lib\Qt5Core.prl    ..\..\..\Qt\5.9.8\msvc2017_64\mkspecs\features\data\dummy.cpp ..\CourseWorkOOP\ActionEnum.h ..\CourseWorkOOP\BaseException.h ..\CourseWorkOOP\CustomDatabase.h ..\CourseWorkOOP\DescriptionWindow.h ..\CourseWorkOOP\EditAnimeModalWindow.h ..\CourseWorkOOP\EditEducationalCartoonModalWindow.h ..\CourseWorkOOP\EditFilmModelWindow.h ..\CourseWorkOOP\ExceptionCodeEnum.h ..\CourseWorkOOP\FileException.h ..\CourseWorkOOP\FileReader.h ..\CourseWorkOOP\FileWriter.h ..\CourseWorkOOP\FindLogic.h ..\CourseWorkOOP\InputException.h ..\CourseWorkOOP\InputLogic.h ..\CourseWorkOOP\List.h ..\CourseWorkOOP\VideoDBContext.h ..\CourseWorkOOP\VideoRepository.h ..\CourseWorkOOP\addnewobjectdialog.h ..\CourseWorkOOP\anime.h ..\CourseWorkOOP\cartoon.h ..\CourseWorkOOP\educational.h ..\CourseWorkOOP\filmblock.h ..\CourseWorkOOP\mainwindow.h ..\CourseWorkOOP\movie.h ..\CourseWorkOOP\video.h ..\CourseWorkOOP\BaseException.cpp ..\CourseWorkOOP\CustomDatabase.cpp ..\CourseWorkOOP\DescriptionWindow.cpp ..\CourseWorkOOP\EditAnimeModalWindow.cpp ..\CourseWorkOOP\EditEducationalCartoonModalWindow.cpp ..\CourseWorkOOP\EditFilmModelWindow.cpp ..\CourseWorkOOP\FileException.cpp ..\CourseWorkOOP\FileReader.cpp ..\CourseWorkOOP\FileWriter.cpp ..\CourseWorkOOP\FindLogic.cpp ..\CourseWorkOOP\InputException.cpp ..\CourseWorkOOP\InputLogic.cpp ..\CourseWorkOOP\VideoDBContext.cpp ..\CourseWorkOOP\VideoRepository.cpp ..\CourseWorkOOP\addnewobjectdialog.cpp ..\CourseWorkOOP\anime.cpp ..\CourseWorkOOP\cartoon.cpp ..\CourseWorkOOP\educational.cpp ..\CourseWorkOOP\filmblock.cpp ..\CourseWorkOOP\main.cpp ..\CourseWorkOOP\mainwindow.cpp ..\CourseWorkOOP\movie.cpp ..\CourseWorkOOP\video.cpp ..\CourseWorkOOP\DescriptionWindow.ui ..\CourseWorkOOP\EditAnimeModalWindow.ui ..\CourseWorkOOP\EditEducationalCartoonModalWindow.ui ..\CourseWorkOOP\EditFilmModelWindow.ui ..\CourseWorkOOP\addnewobjectdialog.ui ..\CourseWorkOOP\filmblock.ui ..\CourseWorkOOP\mainwindow.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\BaseException.obj release\CustomDatabase.obj release\DescriptionWindow.obj release\EditAnimeModalWindow.obj release\EditEducationalCartoonModalWindow.obj release\EditFilmModelWindow.obj release\FileException.obj release\FindLogic.obj release\InputException.obj release\InputLogic.obj release\VideoDBContext.obj release\VideoRepository.obj release\addnewobjectdialog.obj release\anime.obj release\cartoon.obj release\educational.obj release\filmblock.obj release\main.obj release\mainwindow.obj release\movie.obj release\video.obj release\moc_DescriptionWindow.obj release\moc_EditAnimeModalWindow.obj release\moc_EditEducationalCartoonModalWindow.obj release\moc_EditFilmModelWindow.obj release\moc_addnewobjectdialog.obj release\moc_filmblock.obj release\moc_mainwindow.obj
+	-$(DEL_FILE) release\BaseException.obj release\CustomDatabase.obj release\DescriptionWindow.obj release\EditAnimeModalWindow.obj release\EditEducationalCartoonModalWindow.obj release\EditFilmModelWindow.obj release\FileException.obj release\FileReader.obj release\FileWriter.obj release\FindLogic.obj release\InputException.obj release\InputLogic.obj release\VideoDBContext.obj release\VideoRepository.obj release\addnewobjectdialog.obj release\anime.obj release\cartoon.obj release\educational.obj release\filmblock.obj release\main.obj release\mainwindow.obj release\movie.obj release\video.obj release\moc_DescriptionWindow.obj release\moc_EditAnimeModalWindow.obj release\moc_EditEducationalCartoonModalWindow.obj release\moc_EditFilmModelWindow.obj release\moc_addnewobjectdialog.obj release\moc_filmblock.obj release\moc_mainwindow.obj
 	-$(DEL_FILE) release\CourseWorkOOP.exp
 
 distclean: clean 
@@ -447,7 +455,11 @@ release\moc_EditAnimeModalWindow.cpp: ..\CourseWorkOOP\VideoDBContext.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\CourseWorkOOP\FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		..\CourseWorkOOP\FileWriter.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QMainWindow \
@@ -495,7 +507,6 @@ release\moc_EditAnimeModalWindow.cpp: ..\CourseWorkOOP\VideoDBContext.h \
 		..\CourseWorkOOP\InputLogic.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QRegularExpression \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qregularexpression.h \
-		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QDialog \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\qdialog.h \
 		..\CourseWorkOOP\EditAnimeModalWindow.h \
@@ -575,7 +586,11 @@ release\moc_EditEducationalCartoonModalWindow.cpp: ..\CourseWorkOOP\VideoDBConte
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\CourseWorkOOP\FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		..\CourseWorkOOP\FileWriter.h \
 		..\CourseWorkOOP\mainwindow.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
@@ -624,7 +639,6 @@ release\moc_EditEducationalCartoonModalWindow.cpp: ..\CourseWorkOOP\VideoDBConte
 		..\CourseWorkOOP\InputLogic.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QRegularExpression \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qregularexpression.h \
-		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QDialog \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\qdialog.h \
 		..\CourseWorkOOP\EditEducationalCartoonModalWindow.h \
@@ -704,7 +718,11 @@ release\moc_EditFilmModelWindow.cpp: ..\CourseWorkOOP\VideoDBContext.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\CourseWorkOOP\FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		..\CourseWorkOOP\FileWriter.h \
 		..\CourseWorkOOP\mainwindow.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
@@ -753,7 +771,6 @@ release\moc_EditFilmModelWindow.cpp: ..\CourseWorkOOP\VideoDBContext.h \
 		..\CourseWorkOOP\InputLogic.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QRegularExpression \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qregularexpression.h \
-		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QDialog \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\qdialog.h \
 		..\CourseWorkOOP\EditFilmModelWindow.h \
@@ -873,7 +890,11 @@ release\moc_addnewobjectdialog.cpp: ..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidg
 		..\CourseWorkOOP\video.h \
 		..\CourseWorkOOP\educational.h \
 		..\CourseWorkOOP\movie.h \
+		..\CourseWorkOOP\FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		..\CourseWorkOOP\FileWriter.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QMainWindow \
@@ -996,7 +1017,11 @@ release\moc_filmblock.cpp: ..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QWidg
 		..\CourseWorkOOP\VideoRepository.h \
 		..\CourseWorkOOP\CustomDatabase.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
+		..\CourseWorkOOP\FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		..\CourseWorkOOP\FileWriter.h \
 		..\CourseWorkOOP\mainwindow.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
@@ -1083,7 +1108,11 @@ release\moc_mainwindow.cpp: ..\CourseWorkOOP\VideoRepository.h \
 		..\CourseWorkOOP\movie.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\CourseWorkOOP\FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		..\CourseWorkOOP\FileWriter.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QMainWindow \
@@ -1467,7 +1496,11 @@ release\EditAnimeModalWindow.obj: ..\CourseWorkOOP\EditAnimeModalWindow.cpp ../C
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		../CourseWorkOOP/FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		../CourseWorkOOP/FileWriter.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QMainWindow \
@@ -1515,7 +1548,6 @@ release\EditAnimeModalWindow.obj: ..\CourseWorkOOP\EditAnimeModalWindow.cpp ../C
 		../CourseWorkOOP/InputLogic.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QRegularExpression \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qregularexpression.h \
-		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QDialog \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\qdialog.h \
 		ui_EditAnimeModalWindow.h \
@@ -1599,7 +1631,11 @@ release\EditEducationalCartoonModalWindow.obj: ..\CourseWorkOOP\EditEducationalC
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		../CourseWorkOOP/FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		../CourseWorkOOP/FileWriter.h \
 		../CourseWorkOOP/mainwindow.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
@@ -1648,13 +1684,13 @@ release\EditEducationalCartoonModalWindow.obj: ..\CourseWorkOOP\EditEducationalC
 		../CourseWorkOOP/InputLogic.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QRegularExpression \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qregularexpression.h \
-		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QDialog \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\qdialog.h \
 		ui_EditEducationalCartoonModalWindow.h \
 		../CourseWorkOOP/FileException.h \
 		../CourseWorkOOP/BaseException.h \
 		../CourseWorkOOP/ExceptionCodeEnum.h \
+		..\CourseWorkOOP\inputexception.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QMessageBox \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\qmessagebox.h
 
@@ -1731,7 +1767,11 @@ release\EditFilmModelWindow.obj: ..\CourseWorkOOP\EditFilmModelWindow.cpp ../Cou
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		../CourseWorkOOP/FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		../CourseWorkOOP/FileWriter.h \
 		../CourseWorkOOP/mainwindow.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
@@ -1780,13 +1820,13 @@ release\EditFilmModelWindow.obj: ..\CourseWorkOOP\EditFilmModelWindow.cpp ../Cou
 		../CourseWorkOOP/InputLogic.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QRegularExpression \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qregularexpression.h \
-		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QDialog \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\qdialog.h \
 		ui_EditFilmModelWindow.h \
 		../CourseWorkOOP/FileException.h \
 		../CourseWorkOOP/BaseException.h \
 		../CourseWorkOOP/ExceptionCodeEnum.h \
+		..\CourseWorkOOP\inputexception.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QMessageBox \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\qmessagebox.h
 
@@ -1821,6 +1861,148 @@ release\FileException.obj: ..\CourseWorkOOP\FileException.cpp ../CourseWorkOOP/F
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qnamespace.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qarraydata.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstringbuilder.h \
+		../CourseWorkOOP/ExceptionCodeEnum.h
+
+release\FileReader.obj: ..\CourseWorkOOP\FileReader.cpp ../CourseWorkOOP/FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qmap.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qiterator.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qglobal.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qconfig-bootstrapped.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qconfig.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qtcore-config.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qsystemdetection.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qprocessordetection.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qcompilerdetection.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qtypeinfo.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qsysinfo.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qlogging.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qflags.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qatomic.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qbasicatomic.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qatomic_bootstrap.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qgenericatomic.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qatomic_cxx11.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qatomic_msvc.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qglobalstatic.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qmutex.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qnumeric.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qversiontagging.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qlist.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qalgorithms.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qrefcount.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qarraydata.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qhashfunctions.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qchar.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qpair.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qbytearraylist.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qbytearray.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qnamespace.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstring.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstringbuilder.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstringlist.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qregexp.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstringmatcher.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qdebug.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qhash.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qtextstream.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qiodevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qobject.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qobjectdefs.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qobjectdefs_impl.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qcoreevent.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qscopedpointer.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qmetatype.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qvarlengtharray.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qcontainerfwd.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qobject_impl.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qlocale.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qvariant.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qshareddata.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qvector.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qpoint.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qset.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qcontiguouscache.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qsharedpointer.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qsharedpointer_impl.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		../CourseWorkOOP/FileException.h \
+		../CourseWorkOOP/BaseException.h \
+		../CourseWorkOOP/ExceptionCodeEnum.h
+
+release\FileWriter.obj: ..\CourseWorkOOP\FileWriter.cpp ../CourseWorkOOP/FileWriter.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qmap.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qiterator.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qglobal.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qconfig-bootstrapped.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qconfig.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qtcore-config.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qsystemdetection.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qprocessordetection.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qcompilerdetection.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qtypeinfo.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qsysinfo.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qlogging.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qflags.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qatomic.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qbasicatomic.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qatomic_bootstrap.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qgenericatomic.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qatomic_cxx11.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qatomic_msvc.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qglobalstatic.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qmutex.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qnumeric.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qversiontagging.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qlist.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qalgorithms.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qrefcount.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qarraydata.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qhashfunctions.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qchar.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qpair.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qbytearraylist.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qbytearray.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qnamespace.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstring.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstringbuilder.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstringlist.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qregexp.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstringmatcher.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qdebug.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qhash.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qtextstream.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qiodevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qobject.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qobjectdefs.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qobjectdefs_impl.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qcoreevent.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qscopedpointer.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qmetatype.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qvarlengtharray.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qcontainerfwd.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qobject_impl.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qlocale.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qvariant.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qshareddata.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qvector.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qpoint.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qset.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qcontiguouscache.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qsharedpointer.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qsharedpointer_impl.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		../CourseWorkOOP/FileException.h \
+		../CourseWorkOOP/BaseException.h \
 		../CourseWorkOOP/ExceptionCodeEnum.h
 
 release\FindLogic.obj: ..\CourseWorkOOP\FindLogic.cpp ../CourseWorkOOP/FindLogic.h \
@@ -1896,8 +2078,11 @@ release\FindLogic.obj: ..\CourseWorkOOP\FindLogic.cpp ../CourseWorkOOP/FindLogic
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		../CourseWorkOOP/FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
-		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString
+		../CourseWorkOOP/FileWriter.h
 
 release\InputException.obj: ..\CourseWorkOOP\InputException.cpp ../CourseWorkOOP/InputException.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -2140,10 +2325,13 @@ release\VideoRepository.obj: ..\CourseWorkOOP\VideoRepository.cpp ../CourseWorkO
 		../CourseWorkOOP/movie.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		../CourseWorkOOP/FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		../CourseWorkOOP/FileWriter.h \
 		../CourseWorkOOP/FileException.h \
 		../CourseWorkOOP/BaseException.h \
-		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		../CourseWorkOOP/ExceptionCodeEnum.h
 
 release\addnewobjectdialog.obj: ..\CourseWorkOOP\addnewobjectdialog.cpp ../CourseWorkOOP/addnewobjectdialog.h \
@@ -2259,7 +2447,11 @@ release\addnewobjectdialog.obj: ..\CourseWorkOOP\addnewobjectdialog.cpp ../Cours
 		../CourseWorkOOP/video.h \
 		../CourseWorkOOP/educational.h \
 		../CourseWorkOOP/movie.h \
+		../CourseWorkOOP/FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		../CourseWorkOOP/FileWriter.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QMainWindow \
@@ -2278,7 +2470,6 @@ release\addnewobjectdialog.obj: ..\CourseWorkOOP\addnewobjectdialog.cpp ../Cours
 		ui_mainwindow.h \
 		../CourseWorkOOP/FileException.h \
 		../CourseWorkOOP/BaseException.h \
-		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		../CourseWorkOOP/ExceptionCodeEnum.h
 
 release\anime.obj: ..\CourseWorkOOP\anime.cpp ../CourseWorkOOP/anime.h \
@@ -2517,7 +2708,11 @@ release\filmblock.obj: ..\CourseWorkOOP\filmblock.cpp ../CourseWorkOOP/filmblock
 		../CourseWorkOOP/VideoRepository.h \
 		../CourseWorkOOP/CustomDatabase.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
+		../CourseWorkOOP/FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		../CourseWorkOOP/FileWriter.h \
 		../CourseWorkOOP/mainwindow.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
@@ -2547,7 +2742,6 @@ release\filmblock.obj: ..\CourseWorkOOP\filmblock.cpp ../CourseWorkOOP/filmblock
 		../CourseWorkOOP/InputLogic.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QRegularExpression \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qregularexpression.h \
-		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QDialog \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\qdialog.h \
 		../CourseWorkOOP/EditEducationalCartoonModalWindow.h \
@@ -2629,7 +2823,11 @@ release\main.obj: ..\CourseWorkOOP\main.cpp ../CourseWorkOOP/mainwindow.h \
 		../CourseWorkOOP/movie.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		../CourseWorkOOP/FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		../CourseWorkOOP/FileWriter.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QMainWindow \
@@ -2900,7 +3098,11 @@ release\mainwindow.obj: ..\CourseWorkOOP\mainwindow.cpp ../CourseWorkOOP/mainwin
 		../CourseWorkOOP/movie.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		../CourseWorkOOP/FileReader.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QTextStream \
+		../CourseWorkOOP/FileWriter.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QStack \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qstack.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QMainWindow \
@@ -2964,7 +3166,6 @@ release\mainwindow.obj: ..\CourseWorkOOP\mainwindow.cpp ../CourseWorkOOP/mainwin
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\qlayoutitem.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\qgridlayout.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtGui\QPixmap \
-		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
 		../CourseWorkOOP/filmblock.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QWidget \
 		../CourseWorkOOP/FindLogic.h \

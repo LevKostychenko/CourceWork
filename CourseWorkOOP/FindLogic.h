@@ -8,7 +8,9 @@
 class FindLogic
 {
 public:
-    FindLogic();QMap<int, VideoDBContext>::iterator it;
+    FindLogic();
+
+    QMap<int, VideoDBContext>::iterator it;
 
     static QMap<int, VideoDBContext> FindByNameAndCategory(QMap<int, VideoDBContext>::iterator begin,
                                                            QMap<int, VideoDBContext>::iterator end, QString category, QString name);

@@ -10,7 +10,6 @@ public:
     Cartoon();
     Cartoon(QString category, QString name, QString description,
             QString imagePath, QString addingDate, QString creatingDate = "", List<QString> voiceActing = List<QString>());
-    //virtual ~ Cartoon();
     List<QString> VoiceActing;
 };
 
