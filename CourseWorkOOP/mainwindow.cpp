@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //this->_actions = QStack<QPair<ActionEnum, QPair<int, VideoDBContext>>>();
     VideoRepository repos;
     QMap<int, VideoDBContext> dbContextMap;
     try

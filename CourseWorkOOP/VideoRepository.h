@@ -4,6 +4,7 @@
 #include "VideoDBContext.h"
 #include <qfile.h>
 #include <qlist.h>
+#include <QPair>
 #include "FileReader.h"
 #include <QTextStream>
 #include "FileWriter.h"
@@ -20,8 +21,8 @@ public:
 private:
     void WriteToFile(QFile* file, QString data);
     void WriteToFile(QFile* file, List<QString> data);
-    QMap<int, VideoDBContext> ReadFromFiles(int count);
-    QMap<int, QString> ReadFromFile(QFile* file, int count);
+    QPair<int, VideoDBContext> ReadFromFiles(int count);
+    QPair<int, QString> ReadFromFile(QFile* file, int count);
     int GetLastId(QFile* file);
     int GetCountOfEntities(QFile* file);
     void RemoveFromFile(QFile *file, int id);

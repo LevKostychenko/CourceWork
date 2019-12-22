@@ -20,6 +20,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
@@ -44,6 +45,12 @@ public:
     QTextEdit *descriptionEdit;
     QLabel *label_5;
     QLineEdit *dateEdit;
+    QRadioButton *rate5;
+    QRadioButton *rate1;
+    QRadioButton *rate2;
+    QRadioButton *rate4;
+    QRadioButton *rate3;
+    QLabel *label_6;
 
     void setupUi(QDialog *EditFilmModelWindow)
     {
@@ -72,7 +79,7 @@ public:
 
         formLayoutWidget = new QWidget(EditFilmModelWindow);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(10, 10, 439, 309));
+        formLayoutWidget->setGeometry(QRect(10, 10, 439, 318));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
@@ -116,6 +123,36 @@ public:
 
         formLayout->setWidget(4, QFormLayout::FieldRole, dateEdit);
 
+        rate5 = new QRadioButton(formLayoutWidget);
+        rate5->setObjectName(QStringLiteral("rate5"));
+
+        formLayout->setWidget(9, QFormLayout::FieldRole, rate5);
+
+        rate1 = new QRadioButton(formLayoutWidget);
+        rate1->setObjectName(QStringLiteral("rate1"));
+
+        formLayout->setWidget(5, QFormLayout::FieldRole, rate1);
+
+        rate2 = new QRadioButton(formLayoutWidget);
+        rate2->setObjectName(QStringLiteral("rate2"));
+
+        formLayout->setWidget(6, QFormLayout::FieldRole, rate2);
+
+        rate4 = new QRadioButton(formLayoutWidget);
+        rate4->setObjectName(QStringLiteral("rate4"));
+
+        formLayout->setWidget(8, QFormLayout::FieldRole, rate4);
+
+        rate3 = new QRadioButton(formLayoutWidget);
+        rate3->setObjectName(QStringLiteral("rate3"));
+
+        formLayout->setWidget(7, QFormLayout::FieldRole, rate3);
+
+        label_6 = new QLabel(formLayoutWidget);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        formLayout->setWidget(5, QFormLayout::LabelRole, label_6);
+
 
         retranslateUi(EditFilmModelWindow);
 
@@ -131,6 +168,12 @@ public:
         label_3->setText(QApplication::translate("EditFilmModelWindow", "Name", Q_NULLPTR));
         label_4->setText(QApplication::translate("EditFilmModelWindow", "Description", Q_NULLPTR));
         label_5->setText(QApplication::translate("EditFilmModelWindow", "Creating date", Q_NULLPTR));
+        rate5->setText(QApplication::translate("EditFilmModelWindow", "5", Q_NULLPTR));
+        rate1->setText(QApplication::translate("EditFilmModelWindow", "1", Q_NULLPTR));
+        rate2->setText(QApplication::translate("EditFilmModelWindow", "2", Q_NULLPTR));
+        rate4->setText(QApplication::translate("EditFilmModelWindow", "4", Q_NULLPTR));
+        rate3->setText(QApplication::translate("EditFilmModelWindow", "3", Q_NULLPTR));
+        label_6->setText(QApplication::translate("EditFilmModelWindow", "Rate", Q_NULLPTR));
     } // retranslateUi
 
 };

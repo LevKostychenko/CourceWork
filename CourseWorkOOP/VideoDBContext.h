@@ -12,7 +12,7 @@ class VideoDBContext
 public:
     VideoDBContext(QString category, QString name, QString description,
                     QString imagePath, QString addingDate, QString creatingDate = "", QString genre ="", QString educationalTheme = "",
-                   List<QString> voiceActing = List<QString>(), List<QString> cast = List<QString>());
+                   List<QString> voiceActing = List<QString>(), List<QString> cast = List<QString>(), int rate = 0);
     VideoDBContext(Movie movie);
     VideoDBContext(Anime anime);
     VideoDBContext();
@@ -30,6 +30,7 @@ public:
     QString CreatingDate;
     QString Genre;
     QString EducationalTheme;
+    int Rate;
 
     static QString GetActersString(VideoDBContext context);
 };

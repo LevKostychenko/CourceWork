@@ -455,6 +455,7 @@ debug\moc_EditAnimeModalWindow.cpp: ..\CourseWorkOOP\VideoDBContext.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		..\CourseWorkOOP\FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -586,6 +587,7 @@ debug\moc_EditEducationalCartoonModalWindow.cpp: ..\CourseWorkOOP\VideoDBContext
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		..\CourseWorkOOP\FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -718,6 +720,7 @@ debug\moc_EditFilmModelWindow.cpp: ..\CourseWorkOOP\VideoDBContext.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		..\CourseWorkOOP\FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -890,6 +893,7 @@ debug\moc_addnewobjectdialog.cpp: ..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidget
 		..\CourseWorkOOP\video.h \
 		..\CourseWorkOOP\educational.h \
 		..\CourseWorkOOP\movie.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		..\CourseWorkOOP\FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -1017,6 +1021,7 @@ debug\moc_filmblock.cpp: ..\..\..\Qt\5.9.8\msvc2017_64\include\QtWidgets\QWidget
 		..\CourseWorkOOP\VideoRepository.h \
 		..\CourseWorkOOP\CustomDatabase.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		..\CourseWorkOOP\FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -1108,6 +1113,7 @@ debug\moc_mainwindow.cpp: ..\CourseWorkOOP\VideoRepository.h \
 		..\CourseWorkOOP\movie.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		..\CourseWorkOOP\FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -1496,6 +1502,7 @@ debug\EditAnimeModalWindow.obj: ..\CourseWorkOOP\EditAnimeModalWindow.cpp ../Cou
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		../CourseWorkOOP/FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -1631,6 +1638,7 @@ debug\EditEducationalCartoonModalWindow.obj: ..\CourseWorkOOP\EditEducationalCar
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		../CourseWorkOOP/FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -1767,6 +1775,7 @@ debug\EditFilmModelWindow.obj: ..\CourseWorkOOP\EditFilmModelWindow.cpp ../Cours
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		../CourseWorkOOP/FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -2078,6 +2087,7 @@ debug\FindLogic.obj: ..\CourseWorkOOP\FindLogic.cpp ../CourseWorkOOP/FindLogic.h
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		../CourseWorkOOP/FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -2325,6 +2335,7 @@ debug\VideoRepository.obj: ..\CourseWorkOOP\VideoRepository.cpp ../CourseWorkOOP
 		../CourseWorkOOP/movie.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		../CourseWorkOOP/FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -2447,6 +2458,7 @@ debug\addnewobjectdialog.obj: ..\CourseWorkOOP\addnewobjectdialog.cpp ../CourseW
 		../CourseWorkOOP/video.h \
 		../CourseWorkOOP/educational.h \
 		../CourseWorkOOP/movie.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		../CourseWorkOOP/FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -2708,6 +2720,7 @@ debug\filmblock.obj: ..\CourseWorkOOP\filmblock.cpp ../CourseWorkOOP/filmblock.h
 		../CourseWorkOOP/VideoRepository.h \
 		../CourseWorkOOP/CustomDatabase.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QMap \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		../CourseWorkOOP/FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -2823,6 +2836,7 @@ debug\main.obj: ..\CourseWorkOOP\main.cpp ../CourseWorkOOP/mainwindow.h \
 		../CourseWorkOOP/movie.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		../CourseWorkOOP/FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \
@@ -3098,6 +3112,7 @@ debug\mainwindow.obj: ..\CourseWorkOOP\mainwindow.cpp ../CourseWorkOOP/mainwindo
 		../CourseWorkOOP/movie.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfile.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\qfiledevice.h \
+		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QPair \
 		../CourseWorkOOP/FileReader.h \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QFile \
 		..\..\..\Qt\5.9.8\msvc2017_64\include\QtCore\QString \

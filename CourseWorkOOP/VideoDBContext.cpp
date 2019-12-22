@@ -2,7 +2,7 @@
 
 VideoDBContext::VideoDBContext(QString category, QString name, QString description,
                 QString imagePath, QString addingDate, QString creatingDate, QString genre, QString educationalTheme,
-                List<QString> voiceActing, List<QString> cast)
+                List<QString> voiceActing, List<QString> cast, int rate)
 {
     this->Cast = cast;
     this->VoiceActing = voiceActing;
@@ -14,6 +14,7 @@ VideoDBContext::VideoDBContext(QString category, QString name, QString descripti
     this->Description = description;
     this->CreatingDate = creatingDate;
     this->EducationalTheme = educationalTheme;
+    this->Rate = rate;
 }
 
 VideoDBContext::VideoDBContext(Movie movie)
@@ -28,6 +29,7 @@ VideoDBContext::VideoDBContext(Movie movie)
     this->VoiceActing = List<QString>();
     this->CreatingDate = movie.CreatingDate;
     this->EducationalTheme = "";
+    this->Rate = movie.Rate;
 }
 
 VideoDBContext::VideoDBContext(Anime anime)
@@ -42,6 +44,7 @@ VideoDBContext::VideoDBContext(Anime anime)
     this->VoiceActing = anime.VoiceActing;
     this->CreatingDate = anime.CreatingDate;
     this->EducationalTheme = "";
+    this->Rate = anime.Rate;
 }
 
 VideoDBContext::VideoDBContext()
@@ -61,6 +64,7 @@ VideoDBContext::VideoDBContext(Educational educationalCartoon)
     this->VoiceActing = educationalCartoon.VoiceActing;
     this->CreatingDate = educationalCartoon.CreatingDate;
     this->EducationalTheme = educationalCartoon.EducationalTheme;
+    this->Rate = educationalCartoon.Rate;
 }
 
 VideoDBContext::VideoDBContext(const VideoDBContext &context)
@@ -75,6 +79,7 @@ VideoDBContext::VideoDBContext(const VideoDBContext &context)
     this->VoiceActing = context.VoiceActing;
     this->CreatingDate = context.CreatingDate;
     this->EducationalTheme = context.EducationalTheme;
+    this->Rate = context.Rate;
 }
 
 QString VideoDBContext::GetActersString(VideoDBContext context)

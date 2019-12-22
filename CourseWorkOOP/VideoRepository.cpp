@@ -13,7 +13,8 @@ void VideoRepository::Add(VideoDBContext context)
     QFile AddingDateTable("AddingDateTable.txt");
     QFile CreatingDateTable("CreatingDateTable.txt");
     QFile GenreTable("GenreTable.txt");
-    QFile EducationalThemeTable("EducationalThemeTable");
+    QFile EducationalThemeTable("EducationalThemeTable.txt");
+    QFile RateTable("RateTable.txt");
 
     WriteToFile(&VoiceActingTable, context.VoiceActing);
     WriteToFile(&CastTable, context.Cast);
@@ -25,6 +26,7 @@ void VideoRepository::Add(VideoDBContext context)
     WriteToFile(&GenreTable, context.Genre);
     WriteToFile(&EducationalThemeTable, context.EducationalTheme);
     WriteToFile(&DescriptionTable, context.Description);
+    WriteToFile(&RateTable, QString::number(context.Rate));
 }
 
 void VideoRepository::Update(VideoDBContext data, int id)
@@ -38,7 +40,8 @@ void VideoRepository::Update(VideoDBContext data, int id)
     QFile AddingDateTable("AddingDateTable.txt");
     QFile CreatingDateTable("CreatingDateTable.txt");
     QFile GenreTable("GenreTable.txt");
-    QFile EducationalThemeTable("EducationalThemeTable");
+    QFile EducationalThemeTable("EducationalThemeTable.txt");
+    QFile RateTable("RateTable.txt");
 
     UpdateFile(id, data.VoiceActing, &VoiceActingTable);
     UpdateFile(id, data.Cast, &CastTable);
@@ -50,6 +53,7 @@ void VideoRepository::Update(VideoDBContext data, int id)
     UpdateFile(id, data.Genre, &GenreTable);
     UpdateFile(id, data.EducationalTheme, &EducationalThemeTable);
     UpdateFile(id, data.Description, &DescriptionTable);
+    UpdateFile(id, QString::number(data.Rate), &RateTable);
 }
 
 int VideoRepository::GetLastId()
@@ -69,7 +73,8 @@ void VideoRepository::Remove(int id)
     QFile AddingDateTable("AddingDateTable.txt");
     QFile CreatingDateTable("CreatingDateTable.txt");
     QFile GenreTable("GenreTable.txt");
-    QFile EducationalThemeTable("EducationalThemeTable");
+    QFile EducationalThemeTable("EducationalThemeTable.txt");
+    QFile RateTable("RateTable.txt");
 
     RemoveFromFile(&VoiceActingTable, id);
     RemoveFromFile(&CastTable, id);
@@ -81,12 +86,13 @@ void VideoRepository::Remove(int id)
     RemoveFromFile(&GenreTable, id);
     RemoveFromFile(&EducationalThemeTable, id);
     RemoveFromFile(&DescriptionTable, id);
+    RemoveFromFile(&RateTable, id);
 }
 
 QMap<int, VideoDBContext> VideoRepository::GetAll()
 {
   QMap<int, VideoDBContext> map;
-  QMap<int, VideoDBContext> keyValuePair;
+  QPair<int, VideoDBContext> keyValuePair;
   QFile NameTable("NameTable.txt");
 
   int entitiesCount = GetCountOfEntities(&NameTable);
@@ -97,7 +103,7 @@ QMap<int, VideoDBContext> VideoRepository::GetAll()
   for (int i = 0; i < entitiesCount; i++)
   {
     keyValuePair = ReadFromFiles(i);
-    map.insert(keyValuePair.firstKey(), keyValuePair.value(keyValuePair.firstKey()));
+    map.insert(keyValuePair.first, keyValuePair.second);
   }
 
   return map;
@@ -180,7 +186,7 @@ int VideoRepository::GetCountOfEntities(QFile *file)
     return count;
 }
 
-QMap<int, VideoDBContext> VideoRepository::ReadFromFiles(int count)
+QPair<int, VideoDBContext> VideoRepository::ReadFromFiles(int count)
 {
     QFile VoiceAtingTable("VoiceAtingTable.txt");
     QFile CastTable("CastTable.txt");
@@ -191,7 +197,8 @@ QMap<int, VideoDBContext> VideoRepository::ReadFromFiles(int count)
     QFile AddingDateTable("AddingDateTable.txt");
     QFile CreatingDateTable("CreatingDateTable.txt");
     QFile GenreTable("GenreTable.txt");
-    QFile EducationalThemeTable("EducationalThemeTable");
+    QFile EducationalThemeTable("EducationalThemeTable.txt");
+    QFile RateTable("RateTable.txt");
 
     QString name;
     QString imagePath;
@@ -201,26 +208,28 @@ QMap<int, VideoDBContext> VideoRepository::ReadFromFiles(int count)
     QString educationalTheme;
     QString category;
     QString description;
+    int rate;
 
     List<QString> cast;
     List<QString> voiceActing;
 
     int id;
 
-    QMap<int, QString> nameMap = ReadFromFile(&NameTable, count);
-    if (!(nameMap.firstKey() == 0))
+    QPair<int, QString> namePair = ReadFromFile(&NameTable, count);
+    if (!(namePair.first == 0))
     {
-        name = nameMap.first();
-        imagePath = ReadFromFile(&ImagePathTable, count).first();
-        addingDate = ReadFromFile(&AddingDateTable, count).first();
-        creatingDate = ReadFromFile(&CreatingDateTable, count).first();
-        genre = ReadFromFile(&GenreTable, count).first();
-        educationalTheme = ReadFromFile(&EducationalThemeTable, count).first();
-        category = ReadFromFile(&CategoryTable, count).first();
-        description = ReadFromFile(&DescriptionTable, count).first();
+        name = namePair.second;
+        imagePath = ReadFromFile(&ImagePathTable, count).second;
+        addingDate = ReadFromFile(&AddingDateTable, count).second;
+        creatingDate = ReadFromFile(&CreatingDateTable, count).second;
+        genre = ReadFromFile(&GenreTable, count).second;
+        educationalTheme = ReadFromFile(&EducationalThemeTable, count).second;
+        category = ReadFromFile(&CategoryTable, count).second;
+        description = ReadFromFile(&DescriptionTable, count).second;
+        rate = ReadFromFile(&RateTable, count).second.toInt();
 
-        QList<QString> qcast = ReadFromFile(&CastTable, count).first().split(',');
-        QList<QString> qVoiceActing = ReadFromFile(&VoiceAtingTable, count).first().split(',');
+        QList<QString> qcast = ReadFromFile(&CastTable, count).second.split(',');
+        QList<QString> qVoiceActing = ReadFromFile(&VoiceAtingTable, count).second.split(',');
 
         for (QList<QString>::iterator it = qcast.begin(); it != qcast.end(); it++)
         {
@@ -232,25 +241,24 @@ QMap<int, VideoDBContext> VideoRepository::ReadFromFiles(int count)
             voiceActing.PushBack(*it);
         }
 
-        id = nameMap.firstKey();
+        id = namePair.first;
     }
 
-    QMap<int, VideoDBContext> map;
-    map.insert(id, VideoDBContext(category, name, description, imagePath, addingDate, creatingDate, genre, educationalTheme, voiceActing, cast));
-    return map;
+    QPair<int, VideoDBContext> keyValue = qMakePair(id, VideoDBContext(category, name, description, imagePath, addingDate, creatingDate, genre, educationalTheme, voiceActing, cast, rate));
+    return keyValue;
 }
 
-QMap<int, QString> VideoRepository::ReadFromFile(QFile* file, int count)
+QPair<int, QString> VideoRepository::ReadFromFile(QFile* file, int count)
 {
     int id = 0;
     QString data = "";
-    QMap<int, QString> map;
+    QPair<int, QString> pair;
     FileReader freader;
     QString line = freader.ReadToCount(file, count);
     data = line.section(' ', 1);
     id = line.split(' ')[0].toInt();
-    map.insert(id, data);
-    return map;
+    pair = qMakePair(id, data);
+    return pair;
 }
 
 void VideoRepository::RemoveFromFile(QFile *file, int id)

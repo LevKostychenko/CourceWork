@@ -26,6 +26,7 @@ private slots:
 private:
     Ui::EditAnimeModalWindow *ui;
      VideoDBContext _context;
+     int SetRate();
      MainWindow* _mainWindow;
      int _id;
 };

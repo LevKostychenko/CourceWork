@@ -11,7 +11,7 @@ QString FileReader::ReadToCount(QFile *file, int count)
 {
     QString line;
 
-    if((*file).open(QIODevice::ReadOnly))
+    if((*file).open(QIODevice::ReadWrite))
     {
         QTextStream stream( &(*file) );
 
@@ -35,9 +35,9 @@ QString FileReader::ReadAll(QFile *file)
 {
     QString buffer;
 
-    if((*file).open(QIODevice::ReadOnly | QIODevice::Text))
+    if((*file).open(QIODevice::ReadWrite))
     {
-        QTextStream stream( &(*file) );
+        QTextStream stream(&(*file));
 
         while (!stream.atEnd())
         {

@@ -58,7 +58,7 @@
      <x>10</x>
      <y>10</y>
      <width>439</width>
-     <height>309</height>
+     <height>318</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -101,6 +101,48 @@
     </item>
     <item row="4" column="1">
      <widget class="QLineEdit" name="dateEdit"/>
+    </item>
+    <item row="9" column="1">
+     <widget class="QRadioButton" name="rate5">
+      <property name="text">
+       <string>5</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QRadioButton" name="rate1">
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QRadioButton" name="rate2">
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QRadioButton" name="rate4">
+      <property name="text">
+       <string>4</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QRadioButton" name="rate3">
+      <property name="text">
+       <string>3</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Rate</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

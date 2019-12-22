@@ -9,7 +9,7 @@ class Cartoon : public Video
 public:
     Cartoon();
     Cartoon(QString category, QString name, QString description,
-            QString imagePath, QString addingDate, QString creatingDate = "", List<QString> voiceActing = List<QString>());
+            QString imagePath, QString addingDate, QString creatingDate = "", List<QString> voiceActing = List<QString>(), int rate = 0);
     List<QString> VoiceActing;
 };
 

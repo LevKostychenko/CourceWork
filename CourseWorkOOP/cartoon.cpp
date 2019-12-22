@@ -5,8 +5,8 @@ Cartoon::Cartoon()
 
 }
 
-Cartoon::Cartoon(QString category, QString name, QString description, QString imagePath, QString addingDate, QString creatingDate, List<QString> voiceActing) :
-    Video(category, name, description, imagePath, addingDate, creatingDate)
+Cartoon::Cartoon(QString category, QString name, QString description, QString imagePath, QString addingDate, QString creatingDate, List<QString> voiceActing, int rate) :
+    Video(category, name, description, imagePath, addingDate, creatingDate, rate)
 {
     this->VoiceActing = voiceActing;
 }

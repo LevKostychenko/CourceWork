@@ -5,7 +5,7 @@ Video::Video()
 
 }
 
-Video::Video(QString category, QString name, QString description, QString imagePath, QString addingDate, QString creatingDate)
+Video::Video(QString category, QString name, QString description, QString imagePath, QString addingDate, QString creatingDate, int rate)
 {
     this->Category = category;
     this->Name = name;
@@ -13,4 +13,5 @@ Video::Video(QString category, QString name, QString description, QString imageP
     this->AddingDate = addingDate;
     this->Description = description;
     this->CreatingDate = creatingDate;
+    this->Rate = rate;
 }

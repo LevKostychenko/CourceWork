@@ -7,7 +7,7 @@ class Video
 {
 public:
     Video();
-    Video(QString category, QString name, QString description, QString imagePath, QString addingDate, QString creatingDate = "");
+    Video(QString category, QString name, QString description, QString imagePath, QString addingDate, QString creatingDate = "", int rate = 0);
    // virtual ~Video();
 
     QString Category;
@@ -16,6 +16,7 @@ public:
     QString ImagePath;
     QString AddingDate;
     QString CreatingDate;
+    int Rate;
 };
 
 #endif // VIDEO_H

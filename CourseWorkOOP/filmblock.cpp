@@ -28,6 +28,27 @@ FilmBlock::FilmBlock(MainWindow* mainWindow, Ui::MainWindow* uiMainWindow, QWidg
     ui->setupUi(this);
     QFont nameFont( "Arial", 15, QFont::Bold);
     QFont categoryFont( "Arial", 10, QFont::Bold);
+    QFont rateFont =QFont("Arial", 12, QFont::Bold);
+
+    QLabel* rateText = new QLabel();
+
+    if (context.Rate > 0 && context.Rate < 3)
+    {
+        rateText->setStyleSheet("color: red;");
+    }
+    else if (context.Rate > 2 && context.Rate < 5)
+    {
+        rateText->setStyleSheet("color: #FEA43E;");
+    }
+    else if (context.Rate == 5)
+    {
+        rateText->setStyleSheet("color: #2FDE35;");
+    }
+    else
+    {
+        rateText->setStyleSheet("color: #B4BAB4;");
+    }
+
     QHBoxLayout* horisontalBoxLayot = new QHBoxLayout();
     QLabel* imageContainer = new QLabel();
 
@@ -49,9 +70,12 @@ FilmBlock::FilmBlock(MainWindow* mainWindow, Ui::MainWindow* uiMainWindow, QWidg
     imageContainer->setPixmap(QPixmap::fromImage(image).scaled(w, h, Qt::KeepAspectRatio));
     nameText->setText(context.Name);
     nameText->setFont(nameFont);
+    rateText->setText("Rate: " + QString::number(context.Rate));
+    rateText->setFont(rateFont);
     categoryText->setText(context.Category);
     categoryText->setFont(categoryFont);
     verticalBoxLayot->addWidget(nameText);
+    verticalBoxLayot->addWidget(rateText);
     verticalBoxLayot->addWidget(categoryText);
     horisontalBoxLayot->addWidget(imageContainer);
     horisontalBoxLayot->addLayout(verticalBoxLayot);    

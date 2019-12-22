@@ -8,7 +8,7 @@ class Movie : public Video
 {
 public:
     Movie(QString category, QString name, QString description, QString imagePath, QString addingDate,
-          QString creatingDate = "", List<QString> cast = List<QString>());
+          QString creatingDate = "", List<QString> cast = List<QString>(), int rate = 0);
     Movie();
     List<QString> Cast;
 };

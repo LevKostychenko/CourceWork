@@ -26,6 +26,7 @@ private slots:
 private:
     Ui::EditFilmModelWindow *ui;
     VideoDBContext _context;
+    int SetRate();
     MainWindow* _mainWindow;
     int _id;
 };

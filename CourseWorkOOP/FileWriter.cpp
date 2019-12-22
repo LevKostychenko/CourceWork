@@ -9,8 +9,6 @@ FileWriter::FileWriter()
 
 void FileWriter::WriteToFile(QFile *file, QString buff)
 {
-    QString buffer;
-
     if((*file).open(QIODevice::ReadWrite | QIODevice::Text))
     {
         file->resize(0);
@@ -27,8 +25,6 @@ void FileWriter::WriteToFile(QFile *file, QString buff)
 
 void FileWriter::AppendToFile(QFile *file, QString buff)
 {
-    QString buffer;
-
     if((*file).open(QIODevice::Append | QIODevice::Text))
     {
         QTextStream stream( &(*file) );

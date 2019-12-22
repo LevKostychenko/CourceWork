@@ -20,6 +20,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
@@ -31,8 +32,8 @@ class Ui_EditEducationalCartoonModalWindow
 public:
     QWidget *formLayoutWidget;
     QFormLayout *formLayout;
-    QLineEdit *educationalThemeEdit;
     QLabel *label;
+    QLineEdit *educationalThemeEdit;
     QLabel *label_2;
     QLineEdit *voiceActingEdit;
     QLabel *label_3;
@@ -41,6 +42,12 @@ public:
     QTextEdit *descriptionEdit;
     QLabel *label_5;
     QLineEdit *dateEdit;
+    QRadioButton *rate1;
+    QRadioButton *rate2;
+    QRadioButton *rate5;
+    QRadioButton *rate4;
+    QRadioButton *rate3;
+    QLabel *label_6;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
@@ -51,22 +58,22 @@ public:
     {
         if (EditEducationalCartoonModalWindow->objectName().isEmpty())
             EditEducationalCartoonModalWindow->setObjectName(QStringLiteral("EditEducationalCartoonModalWindow"));
-        EditEducationalCartoonModalWindow->resize(455, 370);
+        EditEducationalCartoonModalWindow->resize(455, 409);
         formLayoutWidget = new QWidget(EditEducationalCartoonModalWindow);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(10, 10, 439, 309));
+        formLayoutWidget->setGeometry(QRect(10, 10, 439, 347));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
-        educationalThemeEdit = new QLineEdit(formLayoutWidget);
-        educationalThemeEdit->setObjectName(QStringLiteral("educationalThemeEdit"));
-
-        formLayout->setWidget(1, QFormLayout::FieldRole, educationalThemeEdit);
-
         label = new QLabel(formLayoutWidget);
         label->setObjectName(QStringLiteral("label"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label);
+
+        educationalThemeEdit = new QLineEdit(formLayoutWidget);
+        educationalThemeEdit->setObjectName(QStringLiteral("educationalThemeEdit"));
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, educationalThemeEdit);
 
         label_2 = new QLabel(formLayoutWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
@@ -108,9 +115,39 @@ public:
 
         formLayout->setWidget(5, QFormLayout::FieldRole, dateEdit);
 
+        rate1 = new QRadioButton(formLayoutWidget);
+        rate1->setObjectName(QStringLiteral("rate1"));
+
+        formLayout->setWidget(6, QFormLayout::FieldRole, rate1);
+
+        rate2 = new QRadioButton(formLayoutWidget);
+        rate2->setObjectName(QStringLiteral("rate2"));
+
+        formLayout->setWidget(7, QFormLayout::FieldRole, rate2);
+
+        rate5 = new QRadioButton(formLayoutWidget);
+        rate5->setObjectName(QStringLiteral("rate5"));
+
+        formLayout->setWidget(10, QFormLayout::FieldRole, rate5);
+
+        rate4 = new QRadioButton(formLayoutWidget);
+        rate4->setObjectName(QStringLiteral("rate4"));
+
+        formLayout->setWidget(9, QFormLayout::FieldRole, rate4);
+
+        rate3 = new QRadioButton(formLayoutWidget);
+        rate3->setObjectName(QStringLiteral("rate3"));
+
+        formLayout->setWidget(8, QFormLayout::FieldRole, rate3);
+
+        label_6 = new QLabel(formLayoutWidget);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        formLayout->setWidget(6, QFormLayout::LabelRole, label_6);
+
         horizontalLayoutWidget = new QWidget(EditEducationalCartoonModalWindow);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(10, 330, 441, 31));
+        horizontalLayoutWidget->setGeometry(QRect(10, 370, 441, 31));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -142,6 +179,12 @@ public:
         label_3->setText(QApplication::translate("EditEducationalCartoonModalWindow", "Name", Q_NULLPTR));
         label_4->setText(QApplication::translate("EditEducationalCartoonModalWindow", "Description", Q_NULLPTR));
         label_5->setText(QApplication::translate("EditEducationalCartoonModalWindow", "Creating date", Q_NULLPTR));
+        rate1->setText(QApplication::translate("EditEducationalCartoonModalWindow", "1", Q_NULLPTR));
+        rate2->setText(QApplication::translate("EditEducationalCartoonModalWindow", "2", Q_NULLPTR));
+        rate5->setText(QApplication::translate("EditEducationalCartoonModalWindow", "5", Q_NULLPTR));
+        rate4->setText(QApplication::translate("EditEducationalCartoonModalWindow", "4", Q_NULLPTR));
+        rate3->setText(QApplication::translate("EditEducationalCartoonModalWindow", "3", Q_NULLPTR));
+        label_6->setText(QApplication::translate("EditEducationalCartoonModalWindow", "Rate", Q_NULLPTR));
         save->setText(QApplication::translate("EditEducationalCartoonModalWindow", "Save changes", Q_NULLPTR));
         cancel->setText(QApplication::translate("EditEducationalCartoonModalWindow", "Cancel", Q_NULLPTR));
     } // retranslateUi

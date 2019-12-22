@@ -10,7 +10,7 @@ public:
     Anime();
     Anime(QString category, QString name, QString description,
           QString imagePath, QString addingDate, QString creatingDate = "", QString genre = "",
-         List<QString> voiceActing = List<QString>());
+         List<QString> voiceActing = List<QString>(), int rate = 0);
     QString Genre;
 };
 

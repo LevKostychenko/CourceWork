@@ -10,7 +10,7 @@ public:
     Educational();
     Educational(QString category, QString name, QString description,
                 QString imagePath, QString addingDate, QString creatingDate = "", QString educationalTheme = "",
-               List<QString> voiceActing = List<QString>());
+               List<QString> voiceActing = List<QString>(), int rate = 0);
 
     QString EducationalTheme;
 };
